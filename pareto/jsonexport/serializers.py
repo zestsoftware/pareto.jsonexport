@@ -8,7 +8,6 @@ from Products.Archetypes.Widget import RichWidget
 from archetypes.schemaextender.extender import instanceSchemaFactory
 
 import interfaces
-import html
 
 try:
     from pareto.jsonexport.config import BASE_URL
@@ -194,7 +193,7 @@ class ATSerializer(Serializer):
 
     def to_dict(self, *args, **kwargs):
         ret = super(ATSerializer, self).to_dict(*args, **kwargs)
-        ret['portal_type'] = portal_type = self.instance.portal_type
+        ret['portal_type'] = self.instance.portal_type
         schema = instanceSchemaFactory(self.instance)
         for field_id in schema.keys():
             if field_id in self.skip_fields:

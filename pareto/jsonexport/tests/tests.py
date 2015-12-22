@@ -1,28 +1,12 @@
-import time
 import os
 import unittest
-import multiprocessing
-import tempfile
-import shutil
-import urllib2
-
-try:
-    import json
-except ImportError:
-    import simplejson as json
-
-import transaction
 
 from plone.app.testing import PloneSandboxLayer
-from plone.testing import z2
-from zope.configuration import xmlconfig
 from plone.app.testing import PLONE_INTEGRATION_TESTING
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFCore.utils import getToolByName
 
 from .. import serializers
-from .. import service
-from .. import jsonutils
 from ..interfaces import ISerializer
 
 here = os.path.abspath(os.path.dirname(__file__))

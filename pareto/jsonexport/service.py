@@ -1,15 +1,4 @@
-import os
-import fcntl
-import datetime
-import time
-import urllib2
-import socket
-import base64
-
-from zope import lifecycleevent
-
 from interfaces import ISerializer
-
 import jsonutils
 
 
