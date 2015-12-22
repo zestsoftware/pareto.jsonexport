@@ -45,7 +45,7 @@ class TestCase(unittest.TestCase):
             for key in one:
                 try:
                     self.assertEquals(one[key], other[key])
-                except AssertionError, e:
+                except AssertionError as e:
                     print '%r != %r' % (one, other)
                     print 'key %s: %r != %r' % (key, one[key], other[key])
                     raise e
