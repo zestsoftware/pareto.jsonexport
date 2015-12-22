@@ -1,5 +1,7 @@
 Contributors
 ============
 
-All code is written and maintained by Guido Wesdorp for Pareto
+All code is written by Guido Wesdorp for Pareto
 (mailto:guido.wesdorp@pareto.nl).
+
+Now maintained by Zest Software, for use of a client.

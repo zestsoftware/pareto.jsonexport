@@ -4,4 +4,8 @@ Changelog pareto.jsonexport
 0.1
 ---
 
-* Initial version.
+- Cleanup.
+  [maurits]
+
+- Initial version.
+  [Guido Wesdorp]
