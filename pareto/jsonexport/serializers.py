@@ -11,15 +11,15 @@ import interfaces
 import html
 
 try:
-    from pareto.jsonexport.config import BASE_URL 
-except ImportError:  
+    from pareto.jsonexport.config import BASE_URL
+except ImportError:
     BASE_URL = ''
 
 try:
-    from pareto.jsonexport.config import DIMENSIONS 
-except ImportError:  
+    from pareto.jsonexport.config import DIMENSIONS
+except ImportError:
     DIMENSIONS = [
-        'full', 'large', 'preview', 'mini', 'thumb', 'tile', 'icon', 'listing', 
+        'full', 'large', 'preview', 'mini', 'thumb', 'tile', 'icon', 'listing',
         'leadimage', 'sidebar', 'summary', 'client'
     ]
 
@@ -62,12 +62,12 @@ class Serializer(object):
 
     def url(self, obj):
         return BASE_URL + self.clean_url(obj)
-    
+
     def dimensionize(self, obj, field_id=''):
         url = self.url(obj)
         if field_id:
             url = '/'.join([self.url(obj), field_id])
-        return dict([(d, ('%s_%s' % (url, d)).rstrip('_full')) 
+        return dict([(d, ('%s_%s' % (url, d)).rstrip('_full'))
                      for d in DIMENSIONS])
 
     def to_dict(self, recursive=False):
@@ -162,7 +162,7 @@ class ATSerializer(Serializer):
     """
 
     skip_fields = (
-        'allowDiscussion', 'acquireCriteria', 'constrainTypesMode', 'title', 
+        'allowDiscussion', 'acquireCriteria', 'constrainTypesMode', 'title',
         'description', 'customView', 'customViewFields', 'excludeFromNav',
         'limit', 'limitNumber', 'locallyAllowedTypes', 'nextPreviousEnabled',
         'presentation', 'query', 'sort_on', 'sort_reversed', 'tableContents',
@@ -174,11 +174,11 @@ class ATSerializer(Serializer):
 
     @serializer_for('title')
     def serialize_title(self):
-        return self._get_from_schema('title', self.instance.schema) 
-    
+        return self._get_from_schema('title', self.instance.schema)
+
     @serializer_for('description')
     def serialize_description(self):
-        return self._get_from_schema('description', self.instance.schema) 
+        return self._get_from_schema('description', self.instance.schema)
 
     @serializer_for('state')
     def serialize_workflow_state(self):
