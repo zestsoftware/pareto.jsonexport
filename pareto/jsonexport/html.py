@@ -11,15 +11,16 @@ FORMATTERS = {
     'p': lambda tag, content: '%s\n\n' % (content.strip(),),
     'li': lambda tag, content: '* %s\n' % (content.strip(),),
     'td': lambda tag, content: '%10s' % (content.strip(),),
-#    'strong': lambda tag, content: '*%s*' % (content,),
-#    'em': lambda tag, content: '_%s_' % (content,),
+    #    'strong': lambda tag, content: '*%s*' % (content,),
+    #    'em': lambda tag, content: '_%s_' % (content,),
     'br': lambda tag, content: '\n',
     'a': lambda tag, content: (
         '%s (%s)' % (content.strip(), dict(tag.attrs)['href'])
         if dict(tag.attrs).get('href') else
         content.strip()),
-#    'img': lambda tag, content: '(%s)' % (dict(tag.attrs)['src'],),
+    #    'img': lambda tag, content: '(%s)' % (dict(tag.attrs)['src'],),
 }
+
 
 def html_to_text(html):
     soup = BeautifulSoup.BeautifulSoup(html)
@@ -42,12 +43,14 @@ def html_to_text(html):
                 ret.append('\n')
     return ''.join(ret)
 
+
 def _get_sources(mediael):
     src = dict(mediael.attrs).get('src')
     if src:
         return [src]
     else:
         return [dict(tag.attrs)['src'] for tag in mediael.findAll('source')]
+
 
 def urls_from_html(html):
     """ return a dict with urls

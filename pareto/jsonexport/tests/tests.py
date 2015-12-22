@@ -29,11 +29,13 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 
 class DummyObject(object):
+
     def __init__(self, **kwargs):
         self.__dict__.update(kwargs)
 
 
 class TestCase(unittest.TestCase):
+
     def assertEquals(self, one, other):
         if isinstance(one, dict) and isinstance(other, dict):
             if sorted(one.keys()) != sorted(other.keys()):
@@ -72,7 +74,7 @@ class UnregisteredSerializersTestCase(TestCase):
                 'subtype': 'DTML Method',
                 'id': 'document1',
                 'path': '/folder1/document1',
-            }])
+              }])
 
 
 class SerializersLayer(PloneSandboxLayer):
@@ -254,7 +256,7 @@ class SerializersTestCase(TestCase):
                 'subtype': 'ATNewsItem',
                 'path': '/plone/folder2/newsitem1',
                 'id': 'newsitem1',
-                }])
+              }])
 
     def test_collection(self):
         serializer = ISerializer(self.collection1)
@@ -265,4 +267,4 @@ class SerializersTestCase(TestCase):
                 'path': '/plone/folder2/newsitem1', 'id': 'newsitem1'},
                 {'type': 'Reference', 'subtype': 'ATNewsItem',
                     'path': '/plone/newsitem2', 'id': 'newsitem2'},
-                ])
+             ])

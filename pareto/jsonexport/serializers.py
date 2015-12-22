@@ -24,6 +24,8 @@ except ImportError:
     ]
 
 # base classes
+
+
 def serializer_for(attrId):
     """ decorator to mark methods as serializers for a single field
 
@@ -135,7 +137,6 @@ class ReferenceSerializer(SimpleSerializer):
     @property
     def type(self):
         return 'Reference'
-
 
 
 class UnknownTypeSerializer(Serializer):
@@ -268,6 +269,7 @@ class ATFolderSerializer(ATSerializer):
 
 
 class CollectionSerializer(ATSerializer):
+
     @serializer_for('results')
     def serialize_items(self):
         items = self.instance.results(batch=False)
@@ -275,6 +277,7 @@ class CollectionSerializer(ATSerializer):
 
 
 class ImageSerializer(ItemSerializer):
+
     @serializer_for('width')
     def serialize_width(self):
         return self.instance.width
